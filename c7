@@ -1,0 +1,51 @@
+# Chapter 7: Web-Based Security (Web 系统安全)
+
+## 1. Input Validation & Sanitization (输入验证与清洗)
+* **Input Validation:** Checks if the input meets certain criteria (e.g., format, length, range) without modifying it. (输入验证：检查输入是否符合标准，如邮箱格式、长度，**不修改**原数据。)
+    * *Example:* Checking if an email contains "@" and ".".
+* **Input Sanitization:** Cleans the input by removing illegal or unsafe characters. (输入清洗：移除不安全字符，**会修改**原数据。)
+    * *Example:* Removing HTML tags `<script>` from a comment.
+* **PHP Filter Function:** Use `filter_var($variable, FILTER_TYPE)` for both tasks. (使用 PHP 内置函数处理。)
+    * **Validate:** `FILTER_VALIDATE_EMAIL`, `FILTER_VALIDATE_INT`. (返回数据或 `false`。)
+    * **Sanitize:** `FILTER_SANITIZE_EMAIL`, `FILTER_SANITIZE_STRING`. (返回清洗后的数据。)
+
+## 2. Output Encoding (输出编码)
+* **Purpose:** Prevents **XSS (Cross-Site Scripting)** attacks by converting special characters into HTML entities. (防止跨站脚本攻击，将特殊字符转换为 HTML 实体。)
+* **Function:** `htmlentities($string)` converts characters like `<` to `&lt;` and `>` to `&gt;`. (将敏感符号转义，使其在浏览器中作为普通文本显示而非代码执行。)
+    * *Best Practice:* Always encode user-generated content before displaying it. (最佳实践：输出所有用户生成的内容前务必进行编码。)
+
+## 3. State Management (状态管理)
+* **Session (Server-Side):**
+    * Stores data on the **server**. (数据存放在服务器端。)
+    * More secure; suitable for sensitive data (e.g., User ID, Login Status). (更安全，适合敏感信息。)
+    * Lasts until the browser is closed (default). (默认浏览器关闭即失效。)
+    * **Usage:** `session_start()`, `$_SESSION['key'] = value`.
+* **Cookie (Client-Side):**
+    * Stores data on the **client (browser)** as text files. (数据以文本文件存放在客户端/浏览器。)
+    * Less secure; suitable for non-sensitive preferences (e.g., Language, Theme). (安全性较低，适合非敏感偏好设置。)
+    * Can persist for a long time (set via expiry time). (可长期保存。)
+    * **Usage:** `setcookie('key', 'value', time() + 3600)`.
+
+## 4. Authentication vs. Authorization (认证与授权)
+* **Authentication (AuthN):** The process of verifying **"Who are you?"**. (认证：验证用户身份，如登录。)
+    * *Example:* Checking username and password against the database.
+* **Authorization (AuthZ):** The process of verifying **"What can you do?"**. (授权：验证用户权限，如访问控制。)
+    * *Example:* Checking if the logged-in user is an "Admin" to access the dashboard.
+
+## 5. Password Management (密码管理)
+* **Hashing:** Transforming a password into a fixed-length string that cannot be reversed. **Never store passwords in plain text.** (哈希：将密码转换为不可逆的乱码。**切勿存储明文密码**。)
+* **Functions:**
+    * **`password_hash($pass, PASSWORD_DEFAULT)`:** Uses strong algorithms (like Bcrypt) and automatically adds a random **Salt**. (推荐：使用强加密算法并自动加盐。)
+    * **`password_verify($input, $hash)`:** Verifies the input password against the stored hash. (验证：比对输入密码与哈希值。)
+    * *Avoid:* `MD5` or `SHA1` (they are obsolete and vulnerable). (避免使用已过时的 MD5 或 SHA1。)
+* **Password Strength:** Enforce minimum length (e.g., 8+ chars) and complexity (Upper/Lower/Numbers/Symbols). (密码强度：强制长度和复杂度。)
+
+## 6. File Upload Security (文件上传安全)
+* **Handling Uploads:** Use the global `$_FILES` array. (使用 `$_FILES` 数组接收文件。)
+    * `$f['name']` (Original Name), `$f['tmp_name']` (Temp Path), `$f['size']` (Size), `$f['error']` (Status).
+    * **Function:** `move_uploaded_file($from, $to)` to save the file. (将文件从临时目录移动到目标目录。)
+* **Security Practices:**
+    1. **Validate Extension/Type:** Allow only safe types (e.g., `.jpg`, `.png`). Reject `.php`, `.exe`. (白名单验证：仅允许安全格式，拒绝脚本文件。)
+    2. **Limit File Size:** Prevent DoS attacks by restricting file size. (限制文件大小。)
+    3. **Rename Files:** Generate a unique ID (e.g., `uniqid()`) instead of using the original filename to prevent overwriting or execution. (重命名文件：防止覆盖或恶意文件名执行。)
+    4. **Store Safely:** Ideally store uploads outside the web root directory. (存储在 Web 根目录之外。)
