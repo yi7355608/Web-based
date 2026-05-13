@@ -1,0 +1,68 @@
+# Chapter 4: Client-Side Scripting - JavaScript & jQuery
+
+## Chapter 4A: JavaScript Fundamentals (JS 基础)
+
+### 1. Adding JavaScript to Web Pages (添加 JS 的三种方式)
+* **Inline JavaScript:** Written within the `onevent` attribute (e.g., `onclick`). No reusability. (直接写在元素的事件属性中，无复用性。)
+* **Embedded JavaScript:** Written within `<script>` tags in HTML. Page-level reusability. (写在 HTML 的 script 标签内，页面级复用。)
+* **External JavaScript:** Written in a `.js` file and imported using `<script src="...">`. Site-level reusability. (写在外部 JS 文件并引用，站点级复用。)
+
+### 2. Language Syntax & Data Types (语法与数据类型)
+* **Data Types:** Supports `string`, `number`, `boolean`, `object`, `null`, and `undefined`. (支持字符串、数字、布尔、对象、空值及未定义。)
+* **Variables:** * `const`: For constants (value cannot change). (常量，不可变。)
+    * `let`: For block-scoped variables. (块级作用域变量。)
+* **Operators:** * Arithmetic: `+`, `-`, `*`, `/`, `%`. (算术运算。)
+    * Comparison: `==` (value), `===` (value and type). (比较运算：=== 包含类型检查。)
+
+### 3. Control Structures (控制结构)
+* **Conditionals:** `if...else`, `switch` statements. (条件判断。)
+* **Loops:** `for` loop, `for...of` (for arrays/lists), `while` loop. (循环结构。)
+
+### 4. Functions (函数)
+* **Traditional Function:** `function name(params) { ... }`. (传统定义。)
+* **Arrow Function:** `(params) => { ... }`. Concise syntax often used for callbacks. (箭头函数，简洁语法。)
+
+### 5. DOM (Document Object Model) Access (DOM 访问)
+* **`document.querySelector()`:** Selects the **first** element that matches a CSS selector. (选择第一个匹配 CSS 选择器的元素。)
+* **`document.querySelectorAll()`:** Selects **all** matching elements (returns a NodeList). (选择所有匹配元素。)
+* **Content Manipulation:**
+    * `.textContent`: Gets/sets plain text. (操作纯文本。)
+    * `.innerHTML`: Gets/sets content as HTML. (操作 HTML 内容。)
+
+### 6. Event Handling (事件处理)
+* **`addEventListener()`:** Registers a function to run when an event occurs (e.g., `'click'`, `'input'`, `'change'`). (注册事件监听器，如点击或输入事件。)
+
+---
+
+## Chapter 4B: jQuery Library (jQuery 库)
+
+### 1. Introduction & Setup (简介与安装)
+* **What is jQuery?** A fast, small, and feature-rich JavaScript library. "Write less, do more". (轻量级 JS 库，旨在简化代码。)
+* **Importing jQuery:**
+    * **Local Host:** Download `jquery.min.js`. (本地引入。)
+    * **CDN (Content Delivery Network):** Faster loading via Google or Microsoft CDN. (通过 CDN 引入，加载速度快。)
+
+### 2. jQuery Syntax & Selectors (语法与选择器)
+* **Syntax:** `$(selector).action()`.
+    * `$` is the jQuery shorthand. (jQuery 的缩写。)
+* **Selectors:** Uses CSS-style selectors (e.g., `$('p')`, `$('.class')`, `$('#id')`). (使用 CSS 选择器定位元素。)
+
+### 3. Event Handlers in jQuery (jQuery 事件处理)
+* **Common Events:** `click()`, `dblclick()`, `mouseenter()`, `mouseleave()`. (常见事件。)
+* **The `.on()` Method:** Preferred way to attach events: `$(sel).on('click', e => { ... })`. (推荐的事件绑定方式。)
+
+### 4. DOM Manipulation (DOM 操作)
+* **Content:**
+    * `.text()`: Same as `textContent`. (操作文本。)
+    * `.html()`: Same as `innerHTML`. (操作 HTML。)
+    * `.val()`: Gets/sets values of form fields (input, select). (操作表单输入值。)
+* **Attributes:** `.attr('name', 'value')` or `.removeAttr()`. (操作属性。)
+
+### 5. CSS Manipulation (CSS 操作)
+* **Classes:** `.addClass()`, `.removeClass()`, `.toggleClass()`. (操作类名，常用于触发动画。)
+* **Direct CSS:** `.css('property', 'value')` or `.css({ 'prop': 'val', ... })` for multiple styles. (直接修改 CSS 样式。)
+
+### 6. Effects & Animations (效果与动画)
+* **Visibility:** `.show()`, `.hide()`, `.toggle()`. (显示与隐藏。)
+* **Fading:** `.fadeIn()`, `.fadeOut()`, `.fadeToggle()`. (淡入淡出。)
+* **Sliding:** `.slideDown()`, `.slideUp()`, `.slideToggle()`. (滑动显示。)
