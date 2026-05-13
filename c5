@@ -1,0 +1,75 @@
+# Chapter 5: Server-Side Language - PHP Basics & Forms
+
+## Chapter 5A: PHP Basics (A) - Fundamentals (PHP 基础 A)
+
+### 1. Variables & Syntax (变量与语法)
+* **Variable Naming:** Must start with a dollar sign `$`, followed by a letter or underscore. Case-sensitive. (必须以 `$` 开头，区分大小写。)
+* **PHP Tags:** Code is wrapped in `<?php ... ?>`. (代码包裹在 PHP 标签中。)
+* **Comments:** Supports `//` or `#` (single-line) and `/* ... */` (multi-line). (支持单行和多行注释。)
+
+### 2. Data Types (数据类型)
+* **Scalar Types:** `boolean`, `integer`, `float`, `string`. (标量类型：布尔、整型、浮点、字符串。)
+* **Compound Types:** `array`, `object`. (复合类型：数组、对象。)
+* **Special Types:** `resource`, `NULL`. (特殊类型：资源、空值。)
+
+### 3. Constants (常量)
+* **`define()`:** Used to create constants. Values cannot change once defined. (使用 `define` 定义，一旦定义不可更改。)
+    * *Example:* `define("PI", 3.14);`
+
+### 4. Operators & Regular Expressions (运算符与正则)
+* **Arithmetic & Assignment:** Standard operators like `+`, `-`, `*`, `/`, `%`. (标准算术运算。)
+* **String Operator:** Use `.` for concatenation. (使用点号 `.` 进行字符串连接。)
+* **PCRE (Regular Expressions):**
+    * `preg_match()`: Pattern matching. (模式匹配，常用于输入验证。)
+    * `preg_replace()`: Search and replace. (查找并替换。)
+
+---
+
+## Chapter 5B: PHP Basics (B) - Arrays & Functions (PHP 基础 B)
+
+### 1. PHP Arrays (PHP 数组)
+* **Indexed Arrays:** Elements referenced by a numeric index starting from 0. (索引数组：使用从 0 开始的数字索引。)
+* **Associative Arrays:** Uses named keys (strings) instead of numeric indices. (关联数组：使用字符串作为键值。)
+    * *Example:* `$marks = ["Herman" => 100, "Gillian" => 90];`
+
+### 2. Multidimensional Arrays (多维数组)
+* Arrays containing one or more arrays. (包含一个或多个数组的数组。)
+
+### 3. Array Functions (数组函数)
+* **`count()`:** Returns the number of elements. (返回元素数量。)
+* **`array_merge()`:** Merges one or more arrays. (合并数组。)
+* **`sort()` / `rsort()`:** Sorts indexed arrays. (升序/降序排序索引数组。)
+* **`asort()` / `ksort()`:** Sorts associative arrays by value/key. (按值或键排序关联数组。)
+
+### 4. Functions & Scope (函数与作用域)
+* **Variable Scope:**
+    * **Local Scope:** Variables declared inside a function. (函数内局部作用域。)
+    * **Global Scope:** Variables declared outside functions. Access inside functions via `global` keyword or `$GLOBALS` array. (全局作用域：函数内访问需使用 `global` 关键字或 `$GLOBALS` 数组。)
+* **Pass by Value vs Reference:**
+    * **By Value (Default):** Modifying parameter doesn't affect original variable. (按值传递：不影响原变量。)
+    * **By Reference (`&`):** Use `&` prefix to modify the original variable. (按引用传递：通过 `&` 符号修改原变量。)
+
+---
+
+## Chapter 5C: PHP and Form (PHP 与表单)
+
+### 1. PHP Superglobals (PHP 全局超变量)
+* **`$_SERVER`:** Information about headers, paths, and script locations. (服务器与执行环境信息。)
+* **`$_GET`:** Collects data sent via URL query strings. (收集通过 URL 提交的 GET 数据。)
+* **`$_POST`:** Collects data sent via HTTP POST method (more secure). (收集通过 POST 提交的数据，更安全。)
+* **`$_REQUEST`:** Combined contents of `$_GET` and `$_POST`. (包含 GET 和 POST 的集合。)
+
+
+
+### 2. File Inclusion (文件包含)
+* **`include`:** Includes a file; gives a warning if file is missing (script continues). (包含文件，缺失时报警告但继续执行。)
+* **`require`:** Includes a file; gives a fatal error if file is missing (script stops). (必须包含，缺失时停止执行。)
+* **`include_once` / `require_once`:** Ensures file is included only once. (确保文件仅被包含一次，防止重复定义。)
+
+### 3. Sticky Forms (记忆表单/粘性表单)
+* **Concept:** Keeping user-entered values in form fields after the form is submitted (e.g., if validation fails). (表单提交后保留用户输入的值。)
+* **Implementation:** Setting the `value` attribute of input controls using PHP variables. (通过 PHP 变量设置输入框的 `value` 属性。)
+
+### 4. HTML Helper Functions (HTML 辅助函数)
+* **Purpose:** Reusable functions to generate HTML code (like sticky textboxes) to minimize code repetition. (重用函数生成 HTML，减少重复代码。)
+* **`htmlentities()`:** Converts characters to HTML entities to prevent XSS attacks. (将特殊字符转为 HTML 实体，防止脚本攻击。)
