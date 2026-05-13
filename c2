@@ -1,0 +1,82 @@
+# Chapter 2: HTML (Hypertext Markup Language) - Comprehensive Summary
+
+## Chapter 2A: Introduction to HTML (HTML 基础)
+
+### 1. Introduction (简介)
+* **HTML (Hypertext Markup Language):** A markup language used to describe the **content and structure** of a web document using "tags". (使用“标签”描述网页内容和结构的标记语言。)
+* **Hypertext:** Refers to documents interconnected through **hyperlinks**. (通过超链接相互连接的超文本。)
+* **HTML5:** The latest version of HTML. (目前最新的 HTML 版本。)
+
+### 2. Language Syntax & Structure (语言语法与结构)
+* **Elements & Tags:** Most elements have a **start tag** `<tag>` and an **end tag** `</tag>`. (大多数元素由开始标签和结束标签组成。)
+* **Empty Elements:** Elements without content, e.g., `<br />` (line break), `<hr />` (horizontal rule). (没有内容的空元素。)
+* **Attributes:** Provide additional information about an element, written as `name="value"`. (属性提供元素的额外信息。)
+* **Document Structure (基本结构):**
+    * `<!DOCTYPE html>`: Declares the document type. (声明文档类型。)
+    * `<html>`: The root element. (根元素。)
+    * `<head>`: Contains metadata (e.g., `<title>`, `<meta>`). (包含元数据，不在页面显示。)
+    * `<body>`: Contains the visible page content. (包含网页可见内容。)
+
+### 3. Basic HTML Elements (基础元素)
+* **Headings:** `<h1>` to `<h6>` (h1 is the most important). (标题级别，h1 最大。)
+* **Paragraphs:** `<p>` for text blocks. (段落标签。)
+* **Lists:**
+    * **Ordered List (`<ol>`):** Numbered list. (有序列表/编号。)
+    * **Unordered List (`<ul>`):** Bulleted list. (无序列表/圆点。)
+    * **List Item (`<li>`):** Individual items in a list. (列表项。)
+* **Links (`<a>`):** Use `href` attribute for URLs. (超链接。)
+    * `target="_blank"`: Opens link in a new tab. (在新标签页打开。)
+    * `mailto:`: Link to an email address. (邮件链接。)
+    * `tel:`: Link to a phone number. (电话链接。)
+* **Images (`<img>`):** Uses `src` (source) and `alt` (alternative text). (图像标签，包含路径和替代文本。)
+
+---
+
+## Chapter 2B: HTML Tables (HTML 表格)
+
+### 1. Table Structure (表格结构)
+* **`<table>`:** Defines the web table. (定义表格。)
+* **`<tr>` (Table Row):** Defines a row within the table. (定义行。)
+* **`<th>` (Table Header):** Defines a header cell (centered and bold by default). (表头单元格，默认加粗居中。)
+* **`<td>` (Table Data):** Defines a standard data cell. (标准数据单元格。)
+
+### 2. Advanced Table Features (高级表格特性)
+* **Spanning Cells (跨行/跨列):**
+    * **`colspan="number"`:** Spans a cell across multiple columns. (水平合并单元格/跨列。)
+    * **`rowspan="number"`:** Spans a cell across multiple rows. (垂直合并单元格/跨行。)
+* **Table Sections:**
+    * `<thead>`: Groups header content. (表头部分。)
+    * `<tbody>`: Groups body content. (正文部分。)
+    * `<tfoot>`: Groups footer content. (页脚部分。)
+* **Captions:** `<caption>` adds a title/description to the table. (表格标题。)
+
+### 3. CSS for Tables (表格样式)
+* **Border Collapse:** `border-collapse: collapse;` merges adjacent borders into a single border. (合并相邻边框。)
+* **Width & Height:** Set dimensions for tables or individual cells. (设置表格或单元格的宽高。)
+
+---
+
+## Chapter 2C: HTML Forms & Multimedia (表单与多媒体)
+
+### 1. HTML Forms (HTML 表单)
+* **`<form>`:** Collects and submits user input to a server. (收集并提交用户输入。)
+    * **`action`:** The URL of the server-side script (e.g., `process.php`). (提交的目标地址。)
+    * **`method`:** * `GET`: Appends data to the URL (default, limited size). (通过 URL 传输数据，默认方式。)
+        * `POST`: Sends data in the request body (secure, large data). (通过请求正文传输，更安全。)
+
+### 2. Form Input Controls (表单控件)
+* **`<input>` types:**
+    * `text`, `password`, `email`, `number`.
+    * `radio`: Single selection from a group. (单选。)
+    * `checkbox`: Multiple selections. (多选。)
+    * `submit`: Button to send form data. (提交按钮。)
+* **`<select>` & `<option>`:** Drop-down lists. (下拉列表。)
+* **`<textarea>`:** Multi-line text input. (多行文本框。)
+* **`<label>`:** Labels for input elements (improves accessibility). (输入框的标签描述。)
+
+### 3. Multimedia (多媒体)
+* **Audio (`<audio>`):**
+    * Attributes: `src`, `controls` (play/pause), `autoplay`, `loop`, `muted`. (音频属性：路径、控制栏、自播、循环、静音。)
+* **Video (`<video>`):**
+    * Attributes: `src`, `controls`, `width`, `height`, `poster` (image shown before play). (视频属性：包含封面图 poster。)
+* **Embedded Content (`<iframe>`):** Used to embed YouTube videos or other web pages. (用于嵌入外部视频或网页。)
