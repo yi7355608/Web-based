@@ -1,0 +1,56 @@
+# Chapter 1: Web-Based Integrated Systems - Summary
+
+### 1. Client-Server Architecture (客户端-服务器架构)
+* **The Model:** The web operates on a **client-server model**, where clients and servers exchange data via the **HTTP protocol**. (Web 运行在客户端-服务器模型上，通过 HTTP 协议交换数据。)
+* **Web Server:** A program that stores, processes, and delivers web pages. It runs **server-side scripts** (e.g., PHP). (存储、处理并交付网页的程序，运行服务器端脚本。)
+    * *Examples:* **Apache** (for PHP), **Tomcat** (for Java), **IIS** (for ASP.NET).
+* **Web Client:** A program (browser) that requests and displays content. It processes **HTML, CSS, and JS files**. (发出请求并显示内容的程序/浏览器，处理 HTML、CSS 和 JS 文件。)
+    * *Examples:* Chrome, Edge, Firefox, Safari.
+
+---
+
+### 2. HTTP Communication Protocol (HTTP 通信协议)
+* **Definition:** A set of rules/standards for exchanging data, defining message formats and transmission methods. (数据交换的标准规则，定义了消息格式和传输方式。)
+* **Key Characteristics:**
+    * **Stateless Protocol:** The server does not retain any information about the client between requests. (无状态协议：服务器不保留客户端的请求历史。)
+    * **HTTPS:** The secure version of HTTP, encrypted via **SSL/TLS**. (HTTP 的安全加密版本。)
+    * **Ports:** HTTP uses **Port 80**, and HTTPS uses **Port 443**. (HTTP 使用 80 端口，HTTPS 使用 443 端口。)
+
+---
+
+### 3. HTTP Request & Response Messages (请求与响应消息)
+* **HTTP Request Message:**
+    * **Structure:** Consists of a **Request Line** (Method, URL, Version), Headers, Blank Line, and optional Body. (包含请求行、请求头、空行和正文。)
+    * **Methods:**
+        * **GET:** Retrieves resources; input is passed via **query strings** in the URL. (获取资源；参数通过 URL 传递。)
+        * **POST:** Submits data in the **request body**; more secure for sensitive data. (提交数据；数据在正文中，更安全。)
+* **HTTP Response Message:**
+    * **Structure:** Consists of a **Status Line** (Version, Status Code, Text), Headers, Blank Line, and Body. (包含状态行、响应头、空行和正文。)
+* **Common Status Codes:**
+    * **200 OK:** Request successful. (请求成功。)
+    * **404 Not Found:** Resource not found. (资源未找到。)
+    * **500 Internal Server Error:** Server-side error. (服务器内部错误。)
+
+---
+
+### 4. Web Technologies Integration (Web 技术集成)
+* **Client-Side Technologies:**
+    * **HTML:** Defines the **structure** and layout. (定义结构。)
+    * **CSS:** Handles **styling** and presentation. (处理样式。)
+    * **JavaScript:** Manages **behavior** and logic at the client-side. (管理客户端行为和逻辑。)
+* **Server-Side Technologies:**
+    * **PHP:** Used for back-end logic, **database interactions** (e.g., MySQL), and dynamic content. (用于后端逻辑、数据库交互及动态内容生成。)
+
+---
+
+### 5. Categories of Web Pages (网页分类)
+* **Static Web Pages:** Content is fixed; no processing power; uses only **HTML & CSS**. (内容固定；无处理能力；仅限 HTML/CSS。)
+* **Dynamic Web Pages:** Content is generated at runtime; has processing power. (内容动态生成；具备处理能力。)
+    * **Client-Side Dynamic:** Processing happens in the browser (**JS**). Fast but limited (e.g., input validation). (浏览器端处理；速度快但功能有限。)
+    * **Server-Side Dynamic:** Processing happens on the server (**PHP**). Involves a **Roundtrip** (Request -> Process -> Response). (服务器端处理；涉及“往返循环”。)
+    * **Key Note:** Server-side is powerful (allows database access) but may be slower due to **network delay**. (服务器端功能强大但受网络延迟影响。)
+
+---
+
+### 6. Final Conclusion (最终结论)
+* **Complementary:** Server-side technology is more powerful, but it **cannot totally eliminate** client-side technology. They work **side-by-side** to provide interactive web applications. (服务器端虽然强大但不能取代客户端，两者相辅相成，缺一不可。)
